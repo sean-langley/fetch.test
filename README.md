@@ -1,3 +1,28 @@
+## Getting started
+
+This guide makes some assumptions, mostly that the user is familar with command line environments (CLI). It also assumes that certain tools are available on their operating system of choice.
+
+**Installing git**
+
+Please see https://github.com/git-guides/install-git for the process of installing git on your target system.
+
+**Clone this repository**
+
+Run the following to clone down the repository:
+
+```
+git clone <URL>
+```
+
+**Setting up pyenv***
+The included scripts were designed with python3 (3.12 in this case). To ensure consistiency, a virtual environment should be set up. This guide assumes comfortablity with command line tooks on Linux or MacOS. Please see this URL for information on setting up pyenv on your specific system: https://github.com/pyenv/pyenv?tab=readme-ov-file
+
+Once pyenv has been set up, you need to activate the environment:
+
+python3 -m venv myenv
+source myenv/bin/activate
+
+Once read, use the requirements.txt file to install the required python libraries.
 
 ## Overview of the request
 
