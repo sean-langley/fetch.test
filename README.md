@@ -1,30 +1,6 @@
-## Getting started
+# Purpose of the exercise
 
-This guide makes some assumptions, mostly that the user is familar with command line environments (CLI). It also assumes that certain tools are available on their operating system of choice.
-
-**Installing git**
-
-Please see https://github.com/git-guides/install-git for the process of installing git on your target system.
-
-**Clone this repository**
-
-Run the following to clone down the repository:
-
-```
-git clone <URL>
-```
-
-**Setting up pyenv***
-The included scripts were designed with python3 (3.12 in this case). To ensure consistiency, a virtual environment should be set up. This guide assumes comfortablity with command line tooks on Linux or MacOS. Please see this URL for information on setting up pyenv on your specific system: https://github.com/pyenv/pyenv?tab=readme-ov-file
-
-Once pyenv has been set up, you need to activate the environment:
-
-python3 -m venv myenv
-source myenv/bin/activate
-
-Once read, use the requirements.txt file to install the required python libraries.
-
-## Overview of the request
+**The following is a summary of the included PDF. It may include additional edits or information not contained with the original document**
 
 Implement a program to check the health of a set of HTTP endpoints. A basic overview is given in this section. Additional details are provided in the Prompt section.
 
@@ -46,7 +22,7 @@ Each HTTP endpoint element in the YAML list has the following schema:
  - headers (dictionary, optional) — The HTTP headers to include in the request.
  - body (string, optional) — The HTTP body to include in the request.
  
-An example YAML was provided, but it does seem to make some an assumption that the input is actually an array. This has been corrected so we can correctly parse the YAML:
+An example YAML was provided, but it does seem to make some an assumption that the input is actually an array. Additionally, the array does not seem to be properly formatted YAML. This has been corrected so we can correctly parse the file:
 
 ```
 sites:
@@ -80,8 +56,7 @@ If we are to assume this is NOT to be used as an array, the YAML must be formatt
 
 After parsing the YAML input configuration file, the program should send an HTTP request to each endpoint every 15 seconds. Each time an HTTP request is executed by the program, determine if the outcome is UP or DOWN:
 
- - UP — The HTTP response code is 2xx (any 200–299 response code) and the response
-latency is less than 500 ms.
+ - UP — The HTTP response code is 2xx (any 200–299 response code) and the response latency is less than 500 ms.
  - DOWN — The endpoint is not UP.
 
 Keep testing the endpoints every 15 seconds until the user manually exits the program, Logging the results.
@@ -105,3 +80,54 @@ Here’s the complete expected output to the console of a sample execution of th
 
 Further details can be found in the included PDF.
 
+# Getting started
+
+This guide makes some assumptions, mostly that the user is familar with command line environments (CLI). It also assumes that certain tools are available on their operating system of choice.
+
+## Installing git
+
+Please see https://github.com/git-guides/install-git for the process of installing git on your target system.
+
+## Cloning this repository
+
+Run the following to clone down the repository:
+
+```
+cd ~
+git clone https://github.com/sean-langley/fetch.test.git
+```
+
+## Setting up pyenv
+
+The included scripts were designed with python3 (3.12 in this case). To ensure consistiency, a virtual environment should be set up. This guide assumes comfortablity with command line tooks on Linux or MacOS. Please see this URL for information on setting up pyenv on your specific system: https://github.com/pyenv/pyenv?tab=readme-ov-file
+
+For this exercise, you should install python 3.12:
+
+```
+pyenv install 3.12
+```
+
+Once pyenv has been set up, you need to activate the environment:
+
+```
+python3 -m venv myenv
+source myenv/bin/activate
+```
+
+## Install library requirements
+
+Once python is ready, use the requirements.txt file to install the required python libraries.
+
+```
+cd ~/fetch.test/
+pip install -r requirements.txt
+```
+## Running the tool
+
+Simply execute the tool with the default python version within the environment:
+
+```
+python checkuptime.py --yaml example.yaml
+```
+
+To exit the loop, use Ctrl-C.
