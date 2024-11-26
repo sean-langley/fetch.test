@@ -23,7 +23,29 @@ Each HTTP endpoint element in the YAML list has the following schema:
  
 An example YAML was provided, but it does seem to make some an assumption that the input is actually an array. This has been corrected so we can correctly parse the YAML:
 
-    sites: - headers: - "User-Agent: fetch-synthetic-monitor" method: GET name: fetch index page url: https://fetch.com/ - headers: - "User-Agent: fetch-synthetic-monitor" method: GET name: fetch careers page url: https://fetch.com/careers - body: '{"foo":"bar"}' headers: - "Content-Type: application/json" - "User-Agent: fetch-synthetic-monitor" method: POST name: fetch some fake post endpoint url: https://fetch.com/some/post/endpoint - name: fetch rewards index page url: https://www.fetchrewards.com/
+    sites:
+  - headers:
+      - "User-Agent: fetch-synthetic-monitor"
+    method: GET
+    name: fetch index page
+    url: https://fetch.com/
+
+  - headers:
+      - "User-Agent: fetch-synthetic-monitor"
+    method: GET
+    name: fetch careers page
+    url: https://fetch.com/careers
+
+  - body: '{"foo":"bar"}'
+    headers:
+      - "Content-Type: application/json"
+      - "User-Agent: fetch-synthetic-monitor"
+    method: POST
+    name: fetch some fake post endpoint
+    url: https://fetch.com/some/post/endpoint
+
+  - name: fetch rewards index page
+    url: https://www.fetchrewards.com/
 
 If we are to assume this is NOT to be used as an array, the YAML must be formatted differently as the one provided in the example would not be considered valid.
 
