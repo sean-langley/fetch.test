@@ -23,7 +23,8 @@ Each HTTP endpoint element in the YAML list has the following schema:
  
 An example YAML was provided, but it does seem to make some an assumption that the input is actually an array. This has been corrected so we can correctly parse the YAML:
 
-```sites:
+```
+sites:
   - headers:
       - "User-Agent: fetch-synthetic-monitor"
     method: GET
